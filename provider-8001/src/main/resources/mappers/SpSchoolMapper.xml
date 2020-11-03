@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.provider8002.dao.mapper.SpSchoolMapper">
+  <resultMap id="BaseResultMap" type="com.example.provider8002.dao.entity.SpSchoolDO">
+    <id column="school_id" jdbcType="VARCHAR" property="schoolId" />
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    school_id, school_name, status, gmt_create, gmt_modify
+  </sql>
+
+  <select id="select" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sp_school
+    where school_id = #{schoolId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="delete" parameterType="java.lang.String">
+    delete from sp_school
+    where school_id = #{schoolId,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.example.provider8002.dao.entity.SpSchoolDO">
+    insert into sp_school
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="schoolName != null">
+        school_name,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.example.provider8002.dao.entity.SpSchoolDO">
+    update sp_school
+    <set>
+      <if test="schoolName != null">
+        school_name = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where school_id = #{schoolId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
