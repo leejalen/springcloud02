@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.provider8002.dao.mapper.SpClassMapper">
+<mapper namespace="com.example.provider8001.dao.mapper.SpClassMapper">
 
-  <resultMap id="BaseResultMap" type="com.example.provider8002.dao.entity.SpClassDO">
+  <resultMap id="BaseResultMap" type="com.example.provider8001.dao.entity.SpClassDO">
     <id column="class_id" jdbcType="VARCHAR" property="classId" />
     <result column="class_name" jdbcType="VARCHAR" property="className" />
     <result column="school_id" jdbcType="VARCHAR" property="schoolId" />
@@ -27,7 +27,7 @@
     where class_id = #{classId,jdbcType=VARCHAR}
   </delete>
 
-  <insert id="insert" parameterType="com.example.provider8002.dao.entity.SpClassDO">
+  <insert id="insert" parameterType="com.example.provider8001.dao.entity.SpClassDO">
     insert into sp_class
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="classId != null">
@@ -71,7 +71,7 @@
     </trim>
   </insert>
 
-  <update id="update" parameterType="com.example.provider8002.dao.entity.SpClassDO">
+  <update id="update" parameterType="com.example.provider8001.dao.entity.SpClassDO">
     update sp_class
     <set>
       <if test="className != null">
