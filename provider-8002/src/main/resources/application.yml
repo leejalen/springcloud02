@@ -59,3 +59,8 @@ mybatis:
   configuration:
     # 开启驼峰映射
     map-underscore-to-camel-case: true
+
+#配置回显信息
+info:
+  author: 李家霖
+  build-version: 0.0.1-SNAPSHOT

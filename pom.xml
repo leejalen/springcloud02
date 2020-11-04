@@ -70,7 +70,7 @@
             <!--<dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>runtime</scope>
             </dependency>-->
@@ -86,11 +86,29 @@
     </modules>
 
     <build>
+        <finalName>springcloud02</finalName>
+        <!--<resources>
+            <resource>
+                &lt;!&ndash;允许扫描该路径下的资源文件&ndash;&gt;
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        &lt;!&ndash;指定动态获取以$标志开头结尾的信息&ndash;&gt;
+                        <delimit>$</delimit>
+                    </delimiters>
+                </configuration>
+            </plugin>-->
         </plugins>
     </build>
 
