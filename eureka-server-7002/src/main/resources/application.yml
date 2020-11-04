@@ -14,3 +14,6 @@ eureka:
     #设置eureka server的交互地址，即对外暴露的地址
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka8001/
+  server:
+    #是否开启自我保护模式（是：eureka不注销异常服务）
+    enable-self-preservation: true
