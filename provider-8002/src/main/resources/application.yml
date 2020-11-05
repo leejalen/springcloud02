@@ -17,7 +17,7 @@ eureka:
 spring:
   #对外暴露的名字
   application:
-    name: provider8002
+    name: provider
   #设置数据源
   datasource:
     url: jdbc:mysql://localhost:3319/pc_springcloud01?serverTimezone=Asia/Shanghai

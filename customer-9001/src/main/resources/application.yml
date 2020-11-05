@@ -4,20 +4,12 @@ server:
 
 #eureka客户端配置
 eureka:
-  instance:
-    #应用在eureka中的别名名称
-    instance-id: cust9001
-    #是否显示应用自身的IP地址
-    prefer-ip-address: true
   client:
+    #false表示不向注册中心注册自己（此应用为消费者）
+    register-with-eureka: false
     #要注册进入的eureka的IP地址(多个地址表示注册进入集群)
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
-
-spring:
-  #对外暴露的名字
-  application:
-    name: customer9001
 
 #配置回显信息
 info:

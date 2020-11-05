@@ -1,6 +1,7 @@
 package com.example.customer9001.controller;
 
 import com.example.customer9001.dto.TestConReqDTO;
+import com.example.customer9001.utils.RestTemplateMode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -27,9 +28,13 @@ public class ClassController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private RestTemplateMode restTemplateMode;
+
+    private static final String PREFIX_URL = "http://PROVIDER";
     /**
      * 测试服务间调用
-     * Provider8002使用RestTemplate通过IP地址调用Provider8001的服务
+     * Customer9001通过eureka获取IP地址调用Provider8001的服务
      * */
     @PostMapping("/testConnect")
     @ApiOperation(value = "测试连接Provider8001", httpMethod = "POST")
@@ -46,8 +51,8 @@ public class ClassController {
         ServiceInstance firstInstance = instanceList.get(0);
         URI uri = firstInstance.getUri();
 
-        RestTemplate restTemplate = new RestTemplate();
-        String appAddress = uri.toString() + conPath;
+        RestTemplate restTemplate = restTemplateMode.getRestTemplate();
+        String appAddress = PREFIX_URL + conPath;
         restTemplate.getForObject(appAddress, Object.class);
     }
 

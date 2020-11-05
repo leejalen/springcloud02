@@ -11,7 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableDiscoveryClient
 @EnableSwagger2
 public class Customer9001Application {
 
