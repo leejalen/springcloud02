@@ -10,14 +10,14 @@ eureka:
     #是否显示应用自身的IP地址
     prefer-ip-address: true
   client:
-    #要注册进入的eureka的IP地址
+    #要注册进入的eureka的IP地址(多个地址表示注册进入集群)
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
 
 spring:
   #对外暴露的名字
   application:
-    name: provider
+    name: provider8002
   #设置数据源
   datasource:
     url: jdbc:mysql://localhost:3319/pc_springcloud01?serverTimezone=Asia/Shanghai

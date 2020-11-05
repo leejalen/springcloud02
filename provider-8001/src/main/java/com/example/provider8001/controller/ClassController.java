@@ -46,21 +46,23 @@ public class ClassController {
         List<String> list = discoveryClient.getServices();
         log.info("Application名列表 : {}", list);
         //eureka中Status名列表
-        List<ServiceInstance> instanceList = discoveryClient.getInstances("PROVIDER");
+        List<ServiceInstance> instanceList = discoveryClient.getInstances("PROVIDER8001");
         for (ServiceInstance instance : instanceList){
             log.info("Status名列表 : {}", instance);
             String appId = instance.getServiceId();
+            String scheme = instance.getScheme();
             String instanceId = instance.getInstanceId();
             String host = instance.getHost();
             int port = instance.getPort();
             URI uri = instance.getUri();
             Map<String, String> metaData = instance.getMetadata();
-            log.info("应用对外暴露的名字 : {}", appId);
-            log.info("应用在eureka中的别名 : {}", instanceId);
-            log.info("应用所在的主机IP : {}", host);
-            log.info("应用端口号 : {}", port);
-            log.info("应用真实IP地址 : {}", uri);
-            log.info("应用元数据 : {}", metaData);
+            log.info("appId应用对外暴露的名字 : {}", appId);
+            log.info("scheme : {}", scheme);
+            log.info("instanceId应用在eureka中的别名 : {}", instanceId);
+            log.info("host应用所在的主机IP : {}", host);
+            log.info("port应用端口号 : {}", port);
+            log.info("uri应用真实IP地址 : {}", uri);
+            log.info("metaData应用元数据 : {}", metaData);
         }
     }
 
