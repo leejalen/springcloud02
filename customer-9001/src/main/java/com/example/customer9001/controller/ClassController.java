@@ -38,16 +38,16 @@ public class ClassController {
      * */
     @PostMapping("/testConnect")
     @ApiOperation(value = "测试连接Provider8001", httpMethod = "POST")
-    public void testConnectProvider8001(@Validated @RequestBody TestConReqDTO reqDTO){
-        String appID = reqDTO.getAppID();
+    public void testConndectProvider8001(@Validated @RequestBody TestConReqDTO reqDTO){
+        String appId = reqDTO.getAppID();
         String conPath = reqDTO.getConPath();
         List<String> list = discoveryClient.getServices();
-        if (!list.contains(appID)){
-            log.info("应用 {} 未在eureka中注册", appID);
+        if (!list.contains(appId)){
+            log.info("应用 {} 未在eureka中注册", appId);
             return;
         }
 
-        List<ServiceInstance> instanceList = discoveryClient.getInstances(appID);
+        List<ServiceInstance> instanceList = discoveryClient.getInstances(appId);
         ServiceInstance firstInstance = instanceList.get(0);
         URI uri = firstInstance.getUri();
 
