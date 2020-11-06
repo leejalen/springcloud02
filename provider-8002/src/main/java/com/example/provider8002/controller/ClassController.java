@@ -4,9 +4,7 @@ import com.example.provider8002.service.IClassService;
 import com.example.provider8002.service.bo.SpClassBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -21,10 +19,17 @@ public class ClassController {
     @Autowired
     private IClassService classService;
 
-    @GetMapping("/get")
+    @PostMapping("/get")
     public void getClassDto(){
         SpClassBO classBO = classService.selectClass("1");
         log.info(classBO.toString());
+    }
+
+    @PostMapping("/get/{id}")
+    public String getClassById(@PathVariable("id") String id){
+        SpClassBO classBO = classService.selectClass(id);
+        log.info(classBO.toString());
+        return classBO.toString();
     }
 
     /**

@@ -28,10 +28,13 @@ public class ClassController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    /**
+     * Ribbon负载均衡
+     * */
     @Autowired
     private RestTemplateMode restTemplateMode;
 
-    private static final String PREFIX_URL = "http://PROVIDER";
+    private static final String PREFIX_URL = "http://provider";
     /**
      * 测试服务间调用
      * Customer9001通过eureka获取IP地址调用Provider8001的服务

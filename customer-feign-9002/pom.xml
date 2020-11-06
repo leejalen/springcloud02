@@ -15,6 +15,12 @@
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
+		<!--eureka客户端依赖-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
 		<!--Feign依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

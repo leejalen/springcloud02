@@ -1,0 +1,17 @@
+#设置端口
+server:
+  port: 9002
+
+#eureka客户端配置
+eureka:
+  client:
+    #false表示不向注册中心注册自己（此应用为消费者）
+    register-with-eureka: false
+    #要注册进入的eureka的IP地址(多个地址表示注册进入集群)
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+#配置回显信息
+info:
+  author: 李家霖
+  build-version: 0.0.1-SNAPSHOT

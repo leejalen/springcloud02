@@ -21,7 +21,7 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 			<version>2.2.5.RELEASE</version>
 		</dependency>
-		<!--Ribbon依赖-->
+		<!--Ribbon依赖，客户端要通过Ribbon实现负载均衡需要引入eureka依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
