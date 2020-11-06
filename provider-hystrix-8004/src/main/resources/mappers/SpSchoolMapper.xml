@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.provider8002.dao.mapper.SpSchoolMapper">
+<mapper namespace="com.example.providerhystrix8004.dao.mapper.SpSchoolMapper">
   <resultMap id="BaseResultMap" type="com.example.providerhystrix8004.dao.entity.SpSchoolDO">
     <id column="school_id" jdbcType="VARCHAR" property="schoolId" />
     <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
