@@ -9,30 +9,18 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../springcloud02</relativePath>
 	</parent>
-	<artifactId>customer-9001</artifactId>
+	<artifactId>customer-feign-9002</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-9001</name>
+	<name>customer-feign-9002</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
-		<!--eureka客户端依赖-->
+		<!--Feign依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<version>2.2.5.RELEASE</version>
 		</dependency>
-		<!--Ribbon依赖-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-			<version>2.2.5.RELEASE</version>
-		</dependency>
-		<!--actuator依赖，查看Eureka时点击某个微服务能查看info信息-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>2.2.5.RELEASE</version>
-		</dependency>
-
 	</dependencies>
+
 </project>
