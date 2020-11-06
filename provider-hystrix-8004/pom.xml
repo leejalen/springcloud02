@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!--父依赖-->
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>springcloud02</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../../springcloud02</relativePath>
+	</parent>
+	<artifactId>provider-hystrix-8004</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>provider-hystrix-8004</name>
+	<description>Demo project for Spring Boot</description>
+
+	<dependencies>
+		<!--mybatis-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.3</version>
+		</dependency>
+		<!--mysql连接驱动-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
+		</dependency>
+		<!--阿里巴巴线程池-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!--eureka客户端依赖-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+		<!--hystrix依赖-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+		<!--actuator依赖，查看Eureka时点击某个微服务能查看info信息-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+	</dependencies>
+
+</project>
