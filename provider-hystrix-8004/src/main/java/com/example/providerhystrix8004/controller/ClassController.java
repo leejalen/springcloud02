@@ -41,6 +41,12 @@ public class ClassController {
         return classDTO;
     }
 
+    /**
+     * Hystrix熔断器：若getClassById方法得不到有效数据返回，将默认调用nullDataFallback方法响应请求
+     * 缺点:每个方法都要编写FallBack方法，增加了工作量，造成了代码膨胀，增大了维护难度，代码耦合度高，所以不合理，需要解耦
+     * 解决方法：解耦和降级处理{在客户端完成，客户端在得不到服务后，自己回调本地地一个FallBack方法，返回缺省值 }
+     * @param id 班级ID
+     * */
     public SpClassDTO nullDataFallback(@PathVariable("id") String id){
         log.info("数据库没有数据");
         SpClassDTO classDTO = new SpClassDTO();

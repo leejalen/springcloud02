@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * Created on 2020/10/31
- * @author: leejalen
+ * @author leejalen
  */
 @Slf4j
 @RestController

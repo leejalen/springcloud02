@@ -91,6 +91,7 @@
         <module>customer-9001</module>
         <module>customer-feign-9002</module>
         <module>provider-hystrix-8004</module>
+        <module>customer-feign-hystrix-9003</module>
     </modules>
 
     <build>
