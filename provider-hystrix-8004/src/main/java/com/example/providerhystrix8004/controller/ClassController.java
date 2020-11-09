@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Slf4j
 @RestController
-@RequestMapping("/class")
+@RequestMapping("/class8004")
 public class ClassController {
 
     @Autowired

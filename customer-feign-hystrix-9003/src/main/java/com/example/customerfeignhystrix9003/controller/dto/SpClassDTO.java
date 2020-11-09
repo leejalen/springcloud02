@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * Created on 2020/10/31
- * @author: leejalen
+ * @author leejalen
  */
 @Data
 public class SpClassDTO {

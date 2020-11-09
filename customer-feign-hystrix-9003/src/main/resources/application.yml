@@ -16,6 +16,11 @@ feign:
   hystrix:
     enabled: true
 
+#hystrix配置
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: localhost
+
 #配置回显信息
 info:
   author: 李家霖
