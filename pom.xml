@@ -93,6 +93,8 @@
         <module>provider-hystrix-8004</module>
         <module>customer-feign-hystrix-9003</module>
         <module>zuul-6001</module>
+        <module>rabbitmq-test</module>
+        <module>rabbitmq-test01</module>
     </modules>
 
     <build>
