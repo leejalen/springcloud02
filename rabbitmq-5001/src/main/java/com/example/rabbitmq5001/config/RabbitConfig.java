@@ -49,10 +49,10 @@ public class RabbitConfig {
     /**
      * 队列B与直连交换机绑定在一起
      * */
-    @Bean
+    /*@Bean
     public Binding bindingWithQueueB() {
         return BindingBuilder.bind(directQueueB()).to(directExchange()).with(Constants.ROUTING_KEY_DIRECT);
-    }
+    }*/
 
     //===========发布/订阅模式=============
     /**
