@@ -2,8 +2,6 @@ package com.example.rabbitmq5001.service.impl;
 
 import com.example.rabbitmq5001.service.IRabbitConsumerService;
 import com.example.rabbitmq5001.utils.Constants;
-import org.springframework.amqp.rabbit.annotation.QueueBinding;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +20,7 @@ public class RabbitConsumerServiceImpl implements IRabbitConsumerService {
     }
 
     @Override
-    @RabbitListener(queues = Constants.QUEUE_DIRECT_B)
+    /*@RabbitListener(queues = Constants.QUEUE_DIRECT_B)*/
     public void consumerDirectB(String message) {
         System.out.println("消费者收到队列B中的消息:" + message);
     }

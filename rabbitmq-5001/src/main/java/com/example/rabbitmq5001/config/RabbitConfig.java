@@ -25,10 +25,10 @@ public class RabbitConfig {
     /**
      * 直连交换机，队列B
      * */
-    @Bean
+    /*@Bean
     public Queue directQueueB(){
         return new Queue(Constants.QUEUE_DIRECT_B);
-    }
+    }*/
 
     /**
      * 设置直连交换机
