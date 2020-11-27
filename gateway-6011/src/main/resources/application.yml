@@ -18,7 +18,7 @@ spring:
           uri: lb://provider
           predicates:
             - Path=/class/test/**
-
+            - After=2020-11-27T18:09:03.225+08:00[Asia/Shanghai]
 #eureka客户端配置
 eureka:
   instance:
