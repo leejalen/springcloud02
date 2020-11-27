@@ -1,0 +1,39 @@
+#设置端口
+server:
+  port: 6011
+
+spring:
+  #对外暴露的名字
+  application:
+    name: gateway6011
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enable: true
+      routes:
+        #路由的ID，没有固定规则但要求唯一
+        - id: route01
+          uri: lb://provider
+          predicates:
+            - Path=/class/test/**
+
+#eureka客户端配置
+eureka:
+  instance:
+    #应用在eureka中的别名名称
+    instance-id: gateway
+    #是否显示应用自身的IP地址
+    prefer-ip-address: true
+  client:
+    #要注册进入的eureka的IP地址(多个地址表示注册进入集群)
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+    #是否注册到服务中心
+    register-with-eureka: true
+    #是否参与检索
+    fetch-registry: true
+
+
+

@@ -19,6 +19,12 @@ public class ClassController {
     @Autowired
     private IClassService classService;
 
+    @RequestMapping("/test/{id}")
+    public String test(@PathVariable("id") String id){
+        System.out.println(id);
+        return "success:"+id;
+    }
+
     @PostMapping("/get")
     public void getClassDto(){
         SpClassBO classBO = classService.selectClass("1");

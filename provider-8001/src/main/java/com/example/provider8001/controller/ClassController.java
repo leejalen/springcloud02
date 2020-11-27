@@ -29,6 +29,7 @@ public class ClassController {
 
     @RequestMapping("/test/{id}")
     public String test(@PathVariable("id") String id){
+        System.out.println(id);
         return "success:"+id;
     }
 

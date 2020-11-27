@@ -96,6 +96,7 @@
         <module>rabbitmq-test01</module>
         <module>rabbitmq-5001</module>
         <module>gateway-6010</module>
+        <module>gateway-6011</module>
         <module>multi-enviroment</module>
         <module>java-mistake-test</module>
     </modules>
