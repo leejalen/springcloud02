@@ -9,7 +9,6 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +26,11 @@ public class ClassController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+
+    @RequestMapping("/test/{id}")
+    public String test(@PathVariable("id") String id){
+        return "success:"+id;
+    }
 
     @PostMapping("/get")
     public void getClassDto(){

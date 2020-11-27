@@ -1,10 +1,10 @@
-package com.example.eurekaserver7002;
+package com.example.gateway6010;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaServer7002ApplicationTests {
+class Gateway6010ApplicationTests {
 
 	@Test
 	void contextLoads() {

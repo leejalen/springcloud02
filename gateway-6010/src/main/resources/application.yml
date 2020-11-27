@@ -1,0 +1,37 @@
+#设置端口
+server:
+  port: 6010
+
+spring:
+  #对外暴露的名字
+  application:
+    name: gateway6010
+  cloud:
+    gateway:
+      routes:
+        #路由的ID，没有固定规则但要求唯一
+        - id: route01
+          #匹配后提供服务的路由地址
+          uri: http://localhost:8001
+          #断言，如果路径相匹配则进行路由
+          predicates:
+            - Path=/class/test/**
+
+#eureka客户端配置
+eureka:
+  instance:
+    #应用在eureka中的别名名称
+    instance-id: gateway
+    #是否显示应用自身的IP地址
+    prefer-ip-address: true
+  client:
+    #要注册进入的eureka的IP地址(多个地址表示注册进入集群)
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+    #是否注册到服务中心
+    register-with-eureka: true
+    #是否参与检索
+    fetch-registry: true
+
+
+
