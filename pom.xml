@@ -99,6 +99,8 @@
         <module>gateway-6011</module>
         <module>multi-enviroment</module>
         <module>java-mistake-test</module>
+        <module>cloud-config-3344</module>
+        <module>cloudconfig-client-3355</module>
     </modules>
 
     <build>

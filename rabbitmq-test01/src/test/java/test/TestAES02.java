@@ -1,11 +1,15 @@
 package test;
 
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * @author leejalen
@@ -16,7 +20,7 @@ public class TestAES02 {
 
     private static final String ALGORITHM_AES = "AES";
 
-    private static final String CIPHER_ALGORITHM_CBC = "AES/CBC/PKCS7Padding";
+    private static final String CIPHER_ALGORITHM_CBC = "AES/CBC/PKCS5Padding";
 
     private static final String CIPHER_ALGORITHM_ECB = "AES/ECB/PKCS7Padding";
 
@@ -26,7 +30,7 @@ public class TestAES02 {
 
     private static final String Encode = "UTF-8";
 
-    private static final int KEY_LENGTH_128_BIT = 256;
+    private static final int KEY_LENGTH_128_BIT = 128;
 
     /**
      * 生成密钥
@@ -79,6 +83,11 @@ public class TestAES02 {
 
     public static void outEncryptFile(Key key, String inFilePath, String encryptFilePath){
         CipherInputStream cIn = encrypt(inFilePath, key);
+        try {
+            System.out.println(cIn.available());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         FileOutputStream out = null;
         try {
             out = new FileOutputStream(encryptFilePath);
@@ -115,7 +124,7 @@ public class TestAES02 {
             while ((i = in.read(buffer)) != -1) {
                 cOut.write(buffer, 0, i);
             }
-            cOut.close();;
+            cOut.close();
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -144,14 +153,30 @@ public class TestAES02 {
         return new IvParameterSpec(data);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Key key = createKey();
         String inFilePath = "D:\\testPackage\\test00.txt";
         String encryptFilePath = "D:\\testPackage\\encrypt\\test10.txt";
         String decryptFilePath = "D:\\testPackage\\decrypt\\test10.txt";
 
-        outEncryptFile(key, inFilePath, encryptFilePath);
+        File file = new File(encryptFilePath);
+        long length = file.length();
+        System.out.println("文件长度" + length);
+//
+//        InputStream fileInputStream = new FileInputStream(inFilePath);
+//        System.out.println("文件流长度" + fileInputStream.available());
+//
+        CipherInputStream cipherInputStream = encrypt(inFilePath, key);
 
-        outDecryptFile(key, encryptFilePath, decryptFilePath);
+        System.out.println("加密后文件流长度" + cipherInputStream.available());
+//
+//        String keyStr1 = Base64.getEncoder().encodeToString(key.getEncoded());
+//        System.out.println(keyStr1);
+//
+//        String keyStr2 = new BASE64Encoder().encode(key.getEncoded());
+//        System.out.println(keyStr2);
+        /*outEncryptFile(key, inFilePath, encryptFilePath);*/
+
+        /*outDecryptFile(key, encryptFilePath, decryptFilePath);*/
     }
 }
