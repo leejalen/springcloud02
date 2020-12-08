@@ -101,6 +101,7 @@
         <module>java-mistake-test</module>
         <module>cloud-config-3344</module>
         <module>cloudconfig-client-3355</module>
+        <module>thread-pool-1001</module>
     </modules>
 
     <build>
