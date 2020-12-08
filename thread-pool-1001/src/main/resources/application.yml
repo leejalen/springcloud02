@@ -1,0 +1,16 @@
+server:
+  port: 1001
+
+thread-pool:
+  #设置核心线程数
+  corePoolSize: 5
+  #设置最大线程数
+  maxPoolSize: 20
+  #设置队列容量
+  queueCapacity: 30
+  #允许空闲的时间
+  keepAliveSeconds: 60
+  #线程默认名
+  threadNamePrefix: thread
+  #是否所有任务结束后关闭线程池
+  waitForTasksToCompleteOnShutdown: true
