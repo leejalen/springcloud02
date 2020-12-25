@@ -31,4 +31,15 @@ public class ValueOperationsController {
         map.put(MapConstant.EXPIRE_TIME, 5L);
         valueOperationsService.testKeyValue(map);
     }
+
+    @RequestMapping("/increment")
+    public void testIncrement(){
+        Map<String, Object> map = new HashMap<>(5);
+        map.put(MapConstant.KEY, "key1");
+        map.put(MapConstant.VALUE, 5);
+        map.put(MapConstant.NEW_VALUE, "newValue1");
+        map.put(MapConstant.UPDATE_TIME, 5L);
+        map.put(MapConstant.EXPIRE_TIME, 5L);
+        valueOperationsService.testKeyValue(map);
+    }
 }

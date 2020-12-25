@@ -29,4 +29,10 @@ public interface ValueOperationsService {
      * @return
      * */
     public Object getValue(String key);
+
+    /**
+     * 测试increment方法
+     * @param map
+     * */
+    public void testIncrement(Map<String, Object> map);
 }

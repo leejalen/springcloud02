@@ -29,23 +29,21 @@ public class ValueOperationsServiceImpl implements ValueOperationsService {
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
         //设置键值对
         operations.set(key, value);
+        log.info("设置的键值对为 key:{} value:{}", key, value);
     }
 
     @Override
     public Object getValue(String key) {
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
         //获取键值对
-        return operations.get(key);
-    }
+        Object object = operations.get(key);
+        log.info("获取的值为 value:{}", object);
+        return object;
 
-    public void expireValueByTime(String key, String value, long updateTime, TimeUnit timeUnit) {
-        ValueOperations<String, String> operations = redisTemplate.opsForValue();
-        //设置值自动更新
-        operations.set(key, value, updateTime, timeUnit);
     }
 
     @Override
-    public void testKeyValue(Map<String, Object> map) {
+    public void testIncrement(Map<String, Object> map) {
         String key = (String)map.get(MapConstant.KEY);
         String value = (String)map.get(MapConstant.VALUE);
         String newValue = (String)map.get(MapConstant.NEW_VALUE);
@@ -53,25 +51,43 @@ public class ValueOperationsServiceImpl implements ValueOperationsService {
         Long expireTime = (Long)map.get(MapConstant.EXPIRE_TIME);
         TimeUnit timeUnit = TimeUnit.SECONDS;
 
-        //测试设置键值对
-        setKeyValue(key, value);
-        log.info("设置的键值对为 key:{} value:{}", key, value);
-
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
-        operations.set("test1", "value1");
+        //测试设置键值对
+        operations.set(key, value);
+        operations.increment(key);
+        log.info("获取使用increment方法之后的值：{}", operations.get(key));
+    }
+
+    @Override
+    public void testKeyValue(Map<String, Object> map) {
+        String key = (String)map.get(MapConstant.KEY);
+        Integer value = (Integer) map.get(MapConstant.VALUE);
+        String newValue = (String)map.get(MapConstant.NEW_VALUE);
+        Long updateTime = (Long)map.get(MapConstant.UPDATE_TIME);
+        Long expireTime = (Long)map.get(MapConstant.EXPIRE_TIME);
+        TimeUnit timeUnit = TimeUnit.SECONDS;
+
+        //测试设置键值对
+        //setKeyValue(key, value);
 
         //测试获取键值对
-        Object valueObject = getValue(key);
-        log.info("获取的值为 {}", valueObject);
+        getValue(key);
 
         //测试自动销毁键值对
-        expireValueByTime(key, newValue, updateTime, timeUnit);
+        expireValueByTime(key, newValue, expireTime, timeUnit);
+
         try {
             Thread.sleep(1000 * updateTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Object valueObject1 = getValue(key);
-        log.info("获取的自动更新的值为 {}", valueObject1);
+        log.info("测试值是否消亡 {}", valueObject1);
+    }
+
+    public void expireValueByTime(String key, String value, long updateTime, TimeUnit timeUnit) {
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        //设置值自动消亡
+        operations.set(key, value, updateTime, timeUnit);
     }
 }
