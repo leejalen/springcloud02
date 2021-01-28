@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -45,30 +46,53 @@ public class ValueOperationsServiceImpl implements ValueOperationsService {
     @Override
     public void testIncrement(Map<String, Object> map) {
         String key = (String)map.get(MapConstant.KEY);
-        String value = (String)map.get(MapConstant.VALUE);
-        String newValue = (String)map.get(MapConstant.NEW_VALUE);
-        Long updateTime = (Long)map.get(MapConstant.UPDATE_TIME);
-        Long expireTime = (Long)map.get(MapConstant.EXPIRE_TIME);
-        TimeUnit timeUnit = TimeUnit.SECONDS;
-
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
         //测试设置键值对
-        operations.set(key, value);
+        //operations.set(key, value);
         operations.increment(key);
         log.info("获取使用increment方法之后的值：{}", operations.get(key));
     }
 
     @Override
+    public void testIncrement(Map<String, Object> map, long delta) {
+        String key = (String)map.get(MapConstant.KEY);
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.increment(key, delta);
+        log.info("获取使用increment方法之后的值：{}", operations.get(key));
+    }
+
+    @Override
+    public void testIncrement(Map<String, Object> map, double delta) {
+        String key = (String)map.get(MapConstant.KEY);
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.increment(key, delta);
+        log.info("获取使用increment方法之后的值：{}", operations.get(key));
+    }
+
+    @Override
+    public void testDecrement(Map<String, Object> map) {
+        String key = (String)map.get(MapConstant.KEY);
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.decrement(key);
+        log.info("获取使用decrement方法之后的值：{}", operations.get(key));
+    }
+
+    @Override
+    public List<String> getKeys() {
+        return null;
+    }
+
+    @Override
     public void testKeyValue(Map<String, Object> map) {
         String key = (String)map.get(MapConstant.KEY);
-        Integer value = (Integer) map.get(MapConstant.VALUE);
+        String value = (String) map.get(MapConstant.VALUE);
         String newValue = (String)map.get(MapConstant.NEW_VALUE);
         Long updateTime = (Long)map.get(MapConstant.UPDATE_TIME);
         Long expireTime = (Long)map.get(MapConstant.EXPIRE_TIME);
         TimeUnit timeUnit = TimeUnit.SECONDS;
 
         //测试设置键值对
-        //setKeyValue(key, value);
+        setKeyValue(key, value);
 
         //测试获取键值对
         getValue(key);

@@ -1,8 +1,7 @@
 package com.example.redisdata2001.operationService;
 
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 /**
  * @author leejalen
  * @Description TODO
@@ -14,25 +13,45 @@ public interface ValueOperationsService {
      * 测试键值对的各个功能
      * @param map
      * */
-    public void testKeyValue(Map<String, Object> map);
+    void testKeyValue(Map<String, Object> map);
 
     /**
      * 设置键值对
      * @param key
      * @param value
      * */
-    public void setKeyValue(String key, String value);
+    void setKeyValue(String key, String value);
 
     /**
-     * 获取值
+     * 根据键获取值
      * @param key
      * @return
      * */
-    public Object getValue(String key);
+    Object getValue(String key);
 
     /**
-     * 测试increment方法
+     * 每调用一次increment方法，以字符类型存储的数字的值都将加1
      * @param map
      * */
-    public void testIncrement(Map<String, Object> map);
+    void testIncrement(Map<String, Object> map);
+
+    /**
+     * 每调用一次increment方法，以字符类型存储的数字的值都将加delta
+     * @param map
+     * */
+    void testIncrement(Map<String, Object> map, long delta);
+
+    /**
+     * 每调用一次increment方法，以字符类型存储的数字的值都将加delta
+     * @param map
+     * */
+    void testIncrement(Map<String, Object> map, double delta);
+
+    /**
+     * 每调用一次increment方法，以字符类型存储的数字的值都将减1
+     * @param map
+     * */
+    void testDecrement(Map<String, Object> map);
+
+    List<String> getKeys();
 }
