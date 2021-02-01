@@ -19,7 +19,7 @@ public class RabbitConfig {
      * */
     @Bean
     public Queue directQueueA(){
-        return new Queue(Constants.QUEUE_DIRECT_A);
+        return new Queue(Constants.QUEUE_DIRECT_A, true);
     }
 
     /**
