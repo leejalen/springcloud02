@@ -8,10 +8,22 @@ package com.example.rabbitmq5001.service;
 public interface IRabbitProducerService {
 
     /**
+     * 发送消息
+     * @param message 消息
+     * */
+    public void sendMessage(String message);
+
+    /**
      * 直连交换机生产者
      * @param message 生产者发送的消息
      * */
-    void producerDirect(String message);
+    void producerDirect1(String message);
+
+    /**
+     * 直连交换机生产者
+     * @param message 生产者发送的消息
+     * */
+    void producerDirect2(String message);
 
     /**
      * 扇形交换机生产者

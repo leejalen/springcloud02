@@ -8,6 +8,13 @@ package com.example.rabbitmq5001.service;
 public interface IRabbitConsumerService {
 
     /**
+     * 消息消费者
+     * */
+    void consumerMessage(String message);
+
+    /*直连消费者---------------------------------------------------------------------------------------*/
+
+    /**
      * 直连交换机消费者A
      * @param message 消费者获得的消息
      * */
@@ -18,6 +25,8 @@ public interface IRabbitConsumerService {
      * @param message 消费者获得的消息
      * */
     void consumerDirectB(String message);
+
+    /*扇形消费者---------------------------------------------------------------------------------------*/
 
     /**
      * 扇形交换机消费者C
@@ -31,6 +40,8 @@ public interface IRabbitConsumerService {
      * */
     void consumerFanoutD(String message);
 
+    /*主题消费者---------------------------------------------------------------------------------------*/
+
     /**
      * 主题交换机消费者E
      * @param message 消费者获得的消息
@@ -42,4 +53,11 @@ public interface IRabbitConsumerService {
      * @param message 消费者获得的消息
      * */
     void consumerTopicF(String message);
+
+    /**G
+     * 主题交换机消费者
+     * @param message 消费者获得的消息
+     * */
+    void consumerTopicG(String message);
+
 }

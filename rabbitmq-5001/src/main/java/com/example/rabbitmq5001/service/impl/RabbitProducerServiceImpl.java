@@ -18,13 +18,23 @@ public class RabbitProducerServiceImpl implements IRabbitProducerService {
     RabbitTemplate rabbitTemplate;
 
     @Override
-    public void producerDirect(String message) {
-        rabbitTemplate.convertAndSend(Constants.EXCHANGE_DIRECT, null, message);
+    public void sendMessage(String message) {
+        rabbitTemplate.convertAndSend(Constants.QUEUE, message);
+    }
+
+    @Override
+    public void producerDirect1(String message) {
+        rabbitTemplate.convertAndSend(Constants.EXCHANGE_DIRECT, Constants.ROUTING_KEY_DIRECT_1, message);
+    }
+
+    @Override
+    public void producerDirect2(String message) {
+        rabbitTemplate.convertAndSend(Constants.EXCHANGE_DIRECT, Constants.ROUTING_KEY_DIRECT_2, message);
     }
 
     @Override
     public void producerFanout(String message) {
-        rabbitTemplate.convertAndSend(Constants.EXCHANGE_FANOUT, Constants.ROUTING_KEY_FANOUT, message);
+        rabbitTemplate.convertAndSend(Constants.EXCHANGE_FANOUT, null, message);
     }
 
     @Override
