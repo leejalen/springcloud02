@@ -39,7 +39,7 @@ public class RabbitProducerServiceImpl implements IRabbitProducerService {
 
     @Override
     public void producerTopic(String message) {
-        rabbitTemplate.convertAndSend(Constants.EXCHANGE_TOPIC, Constants.ROUTING_KEY_TOPIC, message);
+        rabbitTemplate.convertAndSend(Constants.EXCHANGE_TOPIC, Constants.ROUTING_KEY_TOPIC_1_1, message);
     }
 
     @Override

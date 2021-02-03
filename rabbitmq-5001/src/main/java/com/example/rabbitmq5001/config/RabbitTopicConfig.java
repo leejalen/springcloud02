@@ -49,11 +49,11 @@ public class RabbitTopicConfig {
 
     @Bean
     public Binding bindingWithQueueF(){
-        return BindingBuilder.bind(topicQueueF()).to(topicExchange()).with(Constants.ROUTING_KEY_TOPIC_2);
+        return BindingBuilder.bind(topicQueueF()).to(topicExchange()).with(Constants.ROUTING_KEY_TOPIC_ONE);
     }
 
     @Bean
     public Binding bindingWithQueueG(){
-        return BindingBuilder.bind(topicQueueG()).to(topicExchange()).with(Constants.ROUTING_KEY_TOPIC_NO);
+        return BindingBuilder.bind(topicQueueG()).to(topicExchange()).with(Constants.ROUTING_KEY_TOPIC_ALL);
     }
 }

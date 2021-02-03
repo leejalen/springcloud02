@@ -14,6 +14,10 @@ spring:
     password: guest
     #虚拟主机
     virtual-host: /
+    #开启消息确认机制：消息发送到交换机
+    publisher-confirm-type: correlated
+    #开启消息确认机制：消息发送到队列
+    publisher-returns: true
     listener:
       simple:
         #消费者最小数量
@@ -26,6 +30,8 @@ spring:
         auto-startup: true
         #被拒绝时重新进入队列
         default-requeue-rejected: true
+        #auto自动
+        acknowledge-mode: manual
     template:
       retry:
         #发布重试，默认false

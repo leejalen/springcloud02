@@ -53,22 +53,22 @@ public class Constants {
     /**
      * 路由键
      * */
-    public final static String ROUTING_KEY_TOPIC = "rk.*";
-
-    /**
-     * 路由键
-     * */
     public final static String ROUTING_KEY_TOPIC_1 = "rk.1";
 
     /**
      * 路由键
      * */
-    public final static String ROUTING_KEY_TOPIC_2 = "rk.2";
+    public final static String ROUTING_KEY_TOPIC_1_1 = "rk.1.1";
 
     /**
      * 路由键
      * */
-    public final static String ROUTING_KEY_TOPIC_NO = "No";
+    public final static String ROUTING_KEY_TOPIC_ONE = "rk.*";
+
+    /**
+     * 路由键
+     * */
+    public final static String ROUTING_KEY_TOPIC_ALL = "rk.#";
 
     /**
      * 路由键
