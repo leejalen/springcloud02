@@ -19,6 +19,11 @@ public class AsyncServiceImpl implements AsyncService {
     @Async("taskExecutor")
     @Override
     public void executeAsync() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         logger.info("start executeAsync");
         try {
             System.out.println("当前运行的线程名称：" + Thread.currentThread().getName());

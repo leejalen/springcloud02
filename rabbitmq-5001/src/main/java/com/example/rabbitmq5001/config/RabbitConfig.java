@@ -26,7 +26,7 @@ public class RabbitConfig {
     /**
      * 生产者的消息确认机制
      * */
-    @Bean
+    /*@Bean
     public RabbitTemplate createRabbitTemplate(ConnectionFactory connectionFactory){
         RabbitTemplate rabbitTemplate = new RabbitTemplate();
         rabbitTemplate.setConnectionFactory(connectionFactory);
@@ -51,5 +51,5 @@ public class RabbitConfig {
             }
         });
         return rabbitTemplate;
-    }
+    }*/
 }

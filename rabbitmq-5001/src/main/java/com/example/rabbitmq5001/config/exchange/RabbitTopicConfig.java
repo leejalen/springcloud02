@@ -1,4 +1,4 @@
-package com.example.rabbitmq5001.config;
+package com.example.rabbitmq5001.config.exchange;
 
 import com.example.rabbitmq5001.utils.Constants;
 import org.springframework.amqp.core.Binding;

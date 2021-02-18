@@ -109,6 +109,7 @@
         <module>cloudconfig-client-3355</module>
         <module>thread-pool-1001</module>
         <module>redis-data-2001</module>
+        <module>eureka-server-config-7004</module>
     </modules>
 
     <build>

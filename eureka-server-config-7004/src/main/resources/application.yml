@@ -1,0 +1,21 @@
+##eureka配置
+#eureka:
+#  instance:
+#    hostname: eureka7004.com
+#  client:
+#    #false表示不向注册中心注册自己
+#    register-with-eureka: false
+#    #false表示自己就是注册中心，职责是维护实例，不参加检索
+#    fetch-registry: false
+#    #设置eureka server的交互地址，即对外暴露的地址
+#    service-url:
+#      #设置eureka server的交互地址，搭建eureka集群
+#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+#  server:
+#    #是否开启自我保护模式（是：eureka不注销异常服务）
+#    enable-self-preservation: true
+#
+##配置回显信息
+#info:
+#  author: 李家霖
+#  build-version: 0.0.1-SNAPSHOT

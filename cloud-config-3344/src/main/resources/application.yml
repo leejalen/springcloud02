@@ -11,12 +11,18 @@ spring:
       server:
         git:
           #git仓库地址
-          uri: https://gitee.com/yu-lin/springcloud02-config.git
-          #搜索仓库中的目录
+          uri: https://github.com/leejalen/config-center-01.git
+          #用户名
+          #username:
+          #密码
+          #password:
+          #配置文件的分支
+          #default-label:
+          #配置文件所在的根目录
           search-paths:
             - config
       #读取的分支
-      label: main
+      label: master
 
 #eureka客户端配置
 eureka:

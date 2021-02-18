@@ -1,0 +1,22 @@
+#端口配置
+server:
+  port: 7004
+
+#应用设置
+spring:
+  #profiles:
+    #active: dev
+  #对外暴露的名字
+  application:
+      name: eureka7004
+  cloud:
+    config:
+      #读取的分支
+      label: master
+      #配置文件名称
+      name: eureka7004
+      #配置文件名称后缀
+      profile: dev
+      #配置中心地址
+      uri: http://configcenter.com:3344
+
